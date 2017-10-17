@@ -20,7 +20,7 @@ var Random = Package.random.Random;
 
 //////////////////////////////////////////////////////////////////////////////////////
 //                                                                                  //
-// packages/localstorage/localstorage.js                                            //
+// packages/localstorage/global.localStorage.js                                            //
 //                                                                                  //
 //////////////////////////////////////////////////////////////////////////////////////
                                                                                     //
@@ -35,9 +35,9 @@ var key = '_localstorage_test_' + Random.id();                                  
 var retrieved;                                                                      // 9
 try {                                                                               // 10
   if (localStorage) {                                                        // 11
-    localStorage.setItem(key, key);                                          // 12
-    retrieved = localStorage.getItem(key);                                   // 13
-    localStorage.removeItem(key);                                            // 14
+    global.localStorage.setItem(key, key);                                          // 12
+    retrieved = global.localStorage.getItem(key);                                   // 13
+    global.localStorage.removeItem(key);                                            // 14
   }                                                                                 // 15
 } catch (e) {                                                                       // 16
   // ... ignore                                                                     // 17
@@ -45,13 +45,13 @@ try {                                                                           
 if (key === retrieved) {                                                            // 19
   Meteor._localStorage = {                                                          // 20
     getItem: function (key) {                                                       // 21
-      return localStorage.getItem(key);                                      // 22
+      return global.localStorage.getItem(key);                                      // 22
     },                                                                              // 23
     setItem: function (key, value) {                                                // 24
-      localStorage.setItem(key, value);                                      // 25
+      global.localStorage.setItem(key, value);                                      // 25
     },                                                                              // 26
     removeItem: function (key) {                                                    // 27
-      localStorage.removeItem(key);                                          // 28
+      global.localStorage.removeItem(key);                                          // 28
     }                                                                               // 29
   };                                                                                // 30
 }                                                                                   // 31
