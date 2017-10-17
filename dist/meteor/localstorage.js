@@ -34,10 +34,10 @@ var Random = Package.random.Random;
 var key = '_localstorage_test_' + Random.id();                                      // 8
 var retrieved;                                                                      // 9
 try {                                                                               // 10
-  if (window.localStorage) {                                                        // 11
-    window.localStorage.setItem(key, key);                                          // 12
-    retrieved = window.localStorage.getItem(key);                                   // 13
-    window.localStorage.removeItem(key);                                            // 14
+  if (localStorage) {                                                        // 11
+    localStorage.setItem(key, key);                                          // 12
+    retrieved = localStorage.getItem(key);                                   // 13
+    localStorage.removeItem(key);                                            // 14
   }                                                                                 // 15
 } catch (e) {                                                                       // 16
   // ... ignore                                                                     // 17
@@ -45,13 +45,13 @@ try {                                                                           
 if (key === retrieved) {                                                            // 19
   Meteor._localStorage = {                                                          // 20
     getItem: function (key) {                                                       // 21
-      return window.localStorage.getItem(key);                                      // 22
+      return localStorage.getItem(key);                                      // 22
     },                                                                              // 23
     setItem: function (key, value) {                                                // 24
-      window.localStorage.setItem(key, value);                                      // 25
+      localStorage.setItem(key, value);                                      // 25
     },                                                                              // 26
     removeItem: function (key) {                                                    // 27
-      window.localStorage.removeItem(key);                                          // 28
+      localStorage.removeItem(key);                                          // 28
     }                                                                               // 29
   };                                                                                // 30
 }                                                                                   // 31
